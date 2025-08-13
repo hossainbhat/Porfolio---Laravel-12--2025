@@ -1,0 +1,12 @@
+<script src="{{asset('them/js/jquery-3.5.0.min.js')}}"></script>
+<script src="{{asset('them/js/styleswitcher.js')}}"></script>
+<script src="{{asset('them/js/preloader.min.js')}}"></script>
+<script src="{{asset('them/js/fm.revealator.jquery.min.js')}}"></script>
+<script src="{{asset('them/js/imagesloaded.pkgd.min.js')}}"></script>
+<script src="{{asset('them/js/masonry.pkgd.min.js')}}"></script>
+<script src="{{asset('them/js/classie.js')}}"></script>
+<script src="{{asset('them/js/cbpGridGallery.js')}}"></script>
+<script src="{{asset('them/js/jquery.hoverdir.js')}}"></script>
+<script src="{{asset('them/js/popper.min.js')}}"></script>
+<script src="{{asset('them/js/bootstrap.js')}}"></script>
+<script src="{{asset('them/js/custom.js')}}"></script>
