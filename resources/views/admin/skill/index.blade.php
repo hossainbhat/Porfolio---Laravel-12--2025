@@ -68,7 +68,7 @@
                     exportOptions: {
                         columns: [0, 1, 2]
                     },
-                    filename: 'Client List'
+                    filename: 'Skill List'
                 }],
                 columns: [{
                         'title': 'Title',

@@ -75,7 +75,6 @@ class ProjectController extends Controller
                 'clint' => 'required',
                 'technology' => 'required',
                 'link' => 'required',
-                'image' => 'required|image|mimes:jpeg,png,jpg,svg,webp|max:1024',
             ]);
 
             $data = [
@@ -125,7 +124,6 @@ class ProjectController extends Controller
                 'clint' => 'required',
                 'technology' => 'required',
                 'link' => 'required',
-                'image' => 'required|image|mimes:jpeg,png,jpg,svg,webp|max:1024',
             ]);
 
             $data = [

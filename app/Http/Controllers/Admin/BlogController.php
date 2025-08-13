@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Blog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
@@ -71,10 +72,11 @@ class BlogController extends Controller
             $request->validate([
                 'title' => 'required',
                 'description' => 'required',
-                'image' => 'required|image|mimes:jpeg,png,jpg,svg,webp|max:1024',
             ]);
 
             $data = [
+                'user_id' => auth()->user()->id,
+                'slug' =>Str::slug($request->title),
                 'title' => $request->title,
                 'description' => $request->description,
                 'meta_title' => $request->meta_title,
@@ -117,7 +119,6 @@ class BlogController extends Controller
            $request->validate([
                 'title' => 'required',
                 'description' => 'required',
-                'image' => 'required|image|mimes:jpeg,png,jpg,svg,webp|max:1024',
             ]);
 
             $data = [
