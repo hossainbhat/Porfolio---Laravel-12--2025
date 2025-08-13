@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 
 class ProjectController extends Controller
 {
+    const IMAGE_PATH = 'uploads/project/';
     /**
      * Display a listing of the resource.
      */
@@ -68,13 +69,13 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         try {
-            // 'image',
             $request->validate([
                 'title' => 'required',
                 'name' => 'required',
                 'clint' => 'required',
                 'technology' => 'required',
                 'link' => 'required',
+                'image' => 'required|image|mimes:jpeg,png,jpg,svg,webp|max:1024',
             ]);
 
             $data = [
@@ -85,6 +86,15 @@ class ProjectController extends Controller
                 'link' => $request->link,
                 'status' => $request->status ? $request->status : 0,
             ];
+            if ($request->hasFile('image')) {
+                $image_tmp = $request->file('image');
+                if ($image_tmp->isValid()) {
+                    $extension = $image_tmp->getClientOriginalExtension();
+                    $fileName = time() . '_' . rand(111, 99999) . '.' . $extension;
+                    $image_tmp->move(self::IMAGE_PATH, $fileName);
+                    $data['image'] = $fileName;
+                }
+            }
             Project::create($data);
             return sendSuccess('Successfully created !');
         } catch (\Exception $e) {
@@ -115,6 +125,7 @@ class ProjectController extends Controller
                 'clint' => 'required',
                 'technology' => 'required',
                 'link' => 'required',
+                'image' => 'required|image|mimes:jpeg,png,jpg,svg,webp|max:1024',
             ]);
 
             $data = [
@@ -125,6 +136,19 @@ class ProjectController extends Controller
                 'link' => $request->link,
                 'status' => $request->status ? $request->status : 0,
             ];
+            if ($request->hasFile('image')) {
+                $logo = self::IMAGE_PATH . $project->image;
+                if (file_exists($logo)) {
+                    unlinkFile($logo);
+                }
+                $image_tmp = $request->file('image');
+                if ($image_tmp->isValid()) {
+                    $extension = $image_tmp->getClientOriginalExtension();
+                    $fileName = time() . '_' . rand(111, 99999) . '.' . $extension;
+                    $image_tmp->move(self::IMAGE_PATH, $fileName);
+                    $data['image'] = $fileName;
+                }
+            }
             $project->update($data);
             return sendSuccess('Successfully Update!');
         } catch (\Exception $e) {
@@ -139,6 +163,10 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         try {
+            $logo = self::IMAGE_PATH . $project->image;
+            if (file_exists($logo)) {
+                unlinkFile($logo);
+            }
             $project->delete();
             return sendMessage('Successfully Delete');
         } catch (\Exception $e) {
