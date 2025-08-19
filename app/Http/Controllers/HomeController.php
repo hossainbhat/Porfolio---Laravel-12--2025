@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
+use App\Models\Skill;
+use App\Models\Contact;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +27,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard');
+        $data['total_project'] = Project::count();
+        $data['total_blog'] = Blog::count();
+        $data['total_skill'] = Skill::count();
+        $data['total_contact'] = Contact::count();
+        $data['contacts'] = Contact::latest()->take(10)->get();
+        return view('admin.dashboard',$data);
     }
 }

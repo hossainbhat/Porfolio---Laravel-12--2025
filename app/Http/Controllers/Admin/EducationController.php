@@ -66,12 +66,13 @@ class EducationController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'year' => 'required',
+        ]);
+
         try {
-            $request->validate([
-                'title' => 'required',
-                'description' => 'required',
-                'year' => 'required',
-            ]);
 
             $data = [
                 'title' => $request->title,
@@ -102,13 +103,12 @@ class EducationController extends Controller
      */
     public function update(Request $request, Education $education)
     {
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'year' => 'required',
+        ]);
         try {
-           $request->validate([
-                'title' => 'required',
-                'description' => 'required',
-                'year' => 'required',
-            ]);
-
             $data = [
                 'title' => $request->title,
                 'description' => $request->description,

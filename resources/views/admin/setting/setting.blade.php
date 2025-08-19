@@ -31,13 +31,6 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label for="email">Email Address</label>
-                                                    <input type="email" placeholder="Enter Email Address" id="email"
-                                                        name="email" class="form-control" value="">
-                                                </div>
-                                            </div>
                                             <div class="col-md-12 mt-3">
                                                 <div class="form-group">
                                                     <label for="meta_title">Meta Title</label>

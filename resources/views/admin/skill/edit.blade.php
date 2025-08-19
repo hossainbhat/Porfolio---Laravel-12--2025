@@ -28,15 +28,18 @@
                             <form id="FormData">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label for="title">Title</label>
-                                            <input type="text" placeholder="Enter Title" value="{{$skill->title}}" id="title" name="title"
-                                                class="form-control">
+                                        <div class="form-group mb-3">
+                                            <label for="title">Title <small class="text-danger">*</small></label>
+                                            <input type="text" placeholder="Enter Title" value="{{ $skill->title }}"
+                                                id="title" name="title" class="form-control">
+                                            <span class="invalid-feedback"></span>
                                         </div>
                                         <div class="form-group">
-                                            <label for="percentage">Percentage</label>
-                                            <input type="number" value="{{$skill->percentage}}" placeholder="Enter Percentage" id="percentage"
-                                                name="percentage" class="form-control">
+                                            <label for="percentage">Percentage <small class="text-danger">*</small></label>
+                                            <input type="number" value="{{ $skill->percentage }}"
+                                                placeholder="Enter Percentage" id="percentage" name="percentage"
+                                                class="form-control">
+                                            <span class="invalid-feedback"></span>
                                         </div>
 
                                         <div class="form-group mt-3">
@@ -55,7 +58,7 @@
 
 @endsection
 @section('page_script')
-       <script type="text/javascript">
+    <script type="text/javascript">
         $(document).on('click', '#updateBtn', function(e) {
             e.preventDefault();
             var id = {{ $skill->id }};

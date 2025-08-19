@@ -21,7 +21,6 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'full_name',
         'address',
         'designation',
         'mobile',
@@ -35,6 +34,16 @@ class User extends Authenticatable
         'image',
         'cv',
         'bio',
+        'site_name',
+        'site_description',
+        'site_keywords',
+        'site_logo',
+        'site_favicon',
+        'contact_email',
+        'contact_phone',
+        'address',
+        'social_links',
+        'status',
     ];
 
     /**

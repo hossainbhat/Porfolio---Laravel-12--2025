@@ -71,12 +71,12 @@
                     filename: 'Blog List'
                 }],
                 columns: [{
-                        'title': 'user_id',
-                        name: 'user_id',
-                        data: "user_id"
+                        'title': 'User Name',
+                        name: 'user.name',
+                        data: "user.name"
                     },
                     {
-                        'title': 'title',
+                        'title': 'Title',
                         name: 'title',
                         data: "title"
                     },

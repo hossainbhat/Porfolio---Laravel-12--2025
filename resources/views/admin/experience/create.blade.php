@@ -28,19 +28,22 @@
                             <form id="FormData">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="form-group">
+                                        <div class="form-group mb-3">
                                             <label for="title">Title</label>
-                                            <input type="text" placeholder="Enter Title" id="title" name="title"
-                                                class="form-control">
+                                            <input type="text" placeholder="Enter Title" value="{{ old('title') }}"
+                                                id="title" name="title" class="form-control">
+                                            <span class="invalid-feedback"></span>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group mt-3">
                                             <label for="year">Year</label>
-                                            <input type="text" placeholder="Enter year" id="year" name="year"
-                                                class="form-control">
+                                            <input type="text" placeholder="Enter year" id="year"
+                                                value="{{ old('year') }}" name="year" class="form-control">
+                                            <span class="invalid-feedback"></span>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="description">description</label>
-                                            <textarea name="description" id="description" class="form-control" cols="30" rows="10"></textarea>
+                                        <div class="form-group mt-3">
+                                            <label for="description">Description</label>
+                                            <textarea name="description" id="description" class="form-control" cols="30" rows="3">{{ old('description') }}</textarea>
+                                            <span class="invalid-feedback"></span>
                                         </div>
 
                                         <div class="form-group mt-3">

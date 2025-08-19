@@ -68,15 +68,14 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required',
+            'name' => 'required',
+            'clint' => 'required',
+            'technology' => 'required',
+            'link' => 'required',
+        ]);
         try {
-            $request->validate([
-                'title' => 'required',
-                'name' => 'required',
-                'clint' => 'required',
-                'technology' => 'required',
-                'link' => 'required',
-            ]);
-
             $data = [
                 'title' => $request->title,
                 'name' => $request->name,
@@ -117,15 +116,14 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
+        $request->validate([
+            'title' => 'required',
+            'name' => 'required',
+            'clint' => 'required',
+            'technology' => 'required',
+            'link' => 'required',
+        ]);
         try {
-           $request->validate([
-                'title' => 'required',
-                'name' => 'required',
-                'clint' => 'required',
-                'technology' => 'required',
-                'link' => 'required',
-            ]);
-
             $data = [
                 'title' => $request->title,
                 'name' => $request->name,

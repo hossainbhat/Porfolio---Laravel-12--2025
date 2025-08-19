@@ -27,36 +27,42 @@
                         <div class="card-body">
                             <form id="FormData">
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-md-12 mt-3">
                                         <div class="form-group">
                                             <label for="title">Title</label>
-                                            <input type="text" placeholder="Enter Title" value="{{$project->title}}" id="title" name="title"
-                                                class="form-control">
+                                            <input type="text" placeholder="Enter Title" value="{{ $project->title }}"
+                                                id="title" name="title" class="form-control">
+                                            <span class="invalid-feedback"></span>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="name">name</label>
-                                            <input type="text" placeholder="Enter name" id="name" name="name" value="{{$project->name}}"
-                                                class="form-control">
+                                        <div class="form-group mt-3">
+                                            <label for="name">Name</label>
+                                            <input type="text" placeholder="Enter name" id="name" name="name"
+                                                value="{{ $project->name }}" class="form-control">
+                                            <span class="invalid-feedback"></span>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="clint">clint</label>
-                                            <input type="text" placeholder="Enter clint" id="clint" name="clint" value="{{$project->clint}}"
-                                                class="form-control">
+                                        <div class="form-group mt-3">
+                                            <label for="clint">Clint</label>
+                                            <input type="text" placeholder="Enter clint" id="clint" name="clint"
+                                                value="{{ $project->clint }}" class="form-control">
+                                            <span class="invalid-feedback"></span>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="technology">technology</label>
-                                            <input type="text" placeholder="Enter technology" id="technology" name="technology" value="{{$project->technology}}"
-                                                class="form-control">
+                                        <div class="form-group mt-3">
+                                            <label for="technology">Technology</label>
+                                            <input type="text" placeholder="Enter technology" id="technology"
+                                                name="technology" value="{{ $project->technology }}" class="form-control">
+                                            <span class="invalid-feedback"></span>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="link">link</label>
-                                            <input type="text" placeholder="Enter link" id="link" name="link" value="{{$project->link}}"
-                                                class="form-control">
+                                        <div class="form-group mt-3">
+                                            <label for="link">Link</label>
+                                            <input type="text" placeholder="Enter link" id="link" name="link"
+                                                value="{{ $project->link }}" class="form-control">
+                                            <span class="invalid-feedback"></span>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="image">image</label>
-                                            <input type="file" placeholder="Enter image" id="image" name="image" 
+                                        <div class="form-group mt-3">
+                                            <label for="image">Image</label>
+                                            <input type="file" placeholder="Enter image" id="image" name="image"
                                                 class="form-control">
+                                            <span class="invalid-feedback"></span>
                                         </div>
 
                                         <div class="form-group mt-3">
@@ -75,7 +81,7 @@
 
 @endsection
 @section('page_script')
-       <script type="text/javascript">
+    <script type="text/javascript">
         $(document).on('click', '#updateBtn', function(e) {
             e.preventDefault();
             var id = {{ $project->id }};

@@ -92,8 +92,13 @@
             <div class="user-box dropdown">
                 <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#"
                     role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    @if(auth()->user()->image)
+                    <img src="{{ asset('uploads/photo/'.auth()->user()->image) }}" class="user-img"
+                        alt="{{auth()->user()->name}}">
+                    @else
                     <img src="{{ asset('admin') }}/assets/images/avatars/avatar-2.png" class="user-img"
-                        alt="user avatar">
+                        alt="{{auth()->user()->name}}">
+                    @endif 
                     <div class="user-info ps-3">
                         <p class="user-name mb-0">{{auth()->user()->name}}</p>
                         <p class="designattion mb-0">Super Admin</p>
@@ -102,9 +107,6 @@
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li><a class="dropdown-item" href="{{route('profile')}}"><i
                                 class="bx bx-user"></i><span>Profile</span></a>
-                    </li>
-                    <li><a class="dropdown-item" href="{{route('settings')}}"><i
-                                class="bx bx-cog"></i><span>Settings</span></a>
                     </li>
                     <li><a class="dropdown-item" href="{{route('home')}}"><i
                                 class='bx bx-home-circle'></i><span>Dashboard</span></a>

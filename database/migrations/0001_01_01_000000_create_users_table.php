@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('full_name')->nullable();
             $table->string('address')->nullable();
             $table->string('designation')->nullable();
             $table->string('mobile')->nullable();
@@ -29,6 +28,19 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('fave_icon')->nullable();
+            $table->text('description')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('linkdin')->nullable();
+            $table->string('github')->nullable();
+            $table->string('years_of_experience')->nullable();
+            $table->string('complete_project')->nullable();
+            $table->string('happy_customer')->nullable();
+            $table->string('number_of_award')->nullable();
+            $table->string('meta_title')->nullable();
+            $table->string('meta_description')->nullable();
+            $table->string('meta_keywords')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

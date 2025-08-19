@@ -28,35 +28,41 @@
                             <form id="FormData">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="form-group">
+                                        <div class="form-group mt-3">
                                             <label for="title">Title</label>
-                                            <input type="text" placeholder="Enter Title" id="title" name="title"
-                                                class="form-control">
+                                            <input type="text" value="{{ old('title') }}" placeholder="Enter Title"
+                                                id="title" name="title" class="form-control">
+                                            <span class="invalid-feedback"></span>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="name">name</label>
-                                            <input type="text" placeholder="Enter name" id="name" name="name" 
+                                        <div class="form-group mt-3">
+                                            <label for="name">Name</label>
+                                            <input type="text" placeholder="Enter name" id="name" name="name"
                                                 class="form-control">
+                                            <span class="invalid-feedback"></span>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="clint">clint</label>
-                                            <input type="text" placeholder="Enter clint" id="clint" name="clint" 
+                                        <div class="form-group mt-3">
+                                            <label for="clint">Clint</label>
+                                            <input type="text" placeholder="Enter clint" id="clint" name="clint"
                                                 class="form-control">
+                                            <span class="invalid-feedback"></span>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="technology">technology</label>
-                                            <input type="text" placeholder="Enter technology" id="technology" name="technology" 
+                                        <div class="form-group mt-3">
+                                            <label for="technology">Technology</label>
+                                            <input type="text" placeholder="Enter technology" id="technology"
+                                                name="technology" class="form-control">
+                                            <span class="invalid-feedback"></span>
+                                        </div>
+                                        <div class="form-group mt-3">
+                                            <label for="link">Link</label>
+                                            <input type="text" placeholder="Enter link" id="link" name="link"
                                                 class="form-control">
+                                            <span class="invalid-feedback"></span>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="link">link</label>
-                                            <input type="text" placeholder="Enter link" id="link" name="link" 
-                                                class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="image">image</label>
+                                        <div class="form-group mt-3">
+                                            <label for="image">Image</label>
                                             <input type="file" placeholder="Enter image" id="image" name="image"
                                                 class="form-control">
+                                            <span class="invalid-feedback"></span>
                                         </div>
                                         <div class="form-group mt-3">
                                             <input type="button" id="addBtn" value="Create" class="btn btn-primary">

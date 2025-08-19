@@ -28,28 +28,33 @@
                             <form id="FormData">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="form-group">
+                                        <div class="form-group mt-3">
                                             <label for="title">Title</label>
-                                            <input type="text" placeholder="Enter Title" id="title" name="title" value="{{ $blog->title }}"
+                                            <input type="text" placeholder="Enter Title" id="title" name="title"
+                                                value="{{ $blog->title }}" class="form-control">
+                                            <span class="invalid-feedback"></span>
+                                        </div>
+                                        <div class="form-group mt-3">
+                                            <label for="description">Description</label>
+                                            <textarea name="description" id="description" class="form-control" cols="30" rows="3">{{ $blog->description }}</textarea>
+                                            <span class="invalid-feedback"></span>
+                                        </div>
+                                        <div class="form-group mt-3">
+                                            <label for="meta_title">Meta Title</label>
+                                            <input type="text" placeholder="Enter meta_title" id="meta_title"
+                                                name="meta_title" value="{{ $blog->meta_title }}" class="form-control">
+                                            <span class="invalid-feedback"></span>
+                                        </div>
+                                        <div class="form-group mt-3">
+                                            <label for="meta_description">Meta Description</label>
+                                            <textarea name="meta_description" id="meta_description" class="form-control" cols="30" rows="3">{{ $blog->meta_description }}</textarea>
+                                            <span class="invalid-feedback"></span>
+                                        </div>
+                                        <div class="form-group mt-3">
+                                            <label for="image">Image</label>
+                                            <input type="file" placeholder="Enter image" id="image" name="image"
                                                 class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="description">description</label>
-                                            <textarea name="description" id="description" class="form-control" cols="30" rows="3">{{$blog->description}}</textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="meta_title">meta_title</label>
-                                            <input type="text" placeholder="Enter meta_title" id="meta_title" name="meta_title" value="{{ $blog->meta_title }}"
-                                                class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="meta_description">meta_description</label>
-                                            <textarea name="meta_description" id="meta_description" class="form-control" cols="30" rows="3">{{$blog->meta_description}}</textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="image">image</label>
-                                            <input type="file" placeholder="Enter image" id="image" name="image" 
-                                                class="form-control">
+                                            <span class="invalid-feedback"></span>
                                         </div>
 
                                         <div class="form-group mt-3">
@@ -68,7 +73,7 @@
 
 @endsection
 @section('page_script')
-       <script type="text/javascript">
+    <script type="text/javascript">
         $(document).on('click', '#updateBtn', function(e) {
             e.preventDefault();
             var id = {{ $blog->id }};

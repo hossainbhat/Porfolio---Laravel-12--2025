@@ -22,16 +22,16 @@
                 <div class="container">
                     <div class="main-body">
                         <div class="row">
-                            <div class="col-lg-4">
+                            <div class="col-lg-3">
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="d-flex flex-column align-items-center text-center">
                                             @if (auth()->user()->image)
-                                                <img src="{{ asset('uploads/photo/' . auth()->user()->image) }}" alt="Admin"
-                                                    class="rounded-circle p-1 bg-primary" width="110">
+                                                <img src="{{ asset('uploads/photo/' . auth()->user()->image) }}"
+                                                    alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
                                             @else
-                                                <img src="assets/images/avatars/no-image.png" alt="Admin"
-                                                    class="rounded-circle p-1 bg-primary" width="110">
+                                                <img src="{{ asset('admin') }}/assets/images/avatars/avatar-2.png"
+                                                    alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
                                             @endif
                                             <div class="mt-3">
                                                 <h4>{{ auth()->user()->name }}</h4>
@@ -44,72 +44,189 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-8">
+                            <div class="col-lg-9">
                                 <form id="updateProfileForm">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="row mb-3">
-                                                <div class="col-sm-4">
-                                                    <h6 class="mb-0">Full Name</h6>
-                                                </div>
-                                                <div class="col-sm-8 text-secondary">
+                                                <div class="col-sm-6 text-secondary">
+                                                    <label for="name">Full Name</label>
                                                     <input type="text" name="name" id="name" class="form-control"
                                                         value="{{ auth()->user()->name }}" placeholder="Your Name">
                                                 </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col-sm-4">
-                                                    <h6 class="mb-0">Email</h6>
-                                                </div>
-                                                <div class="col-sm-8 text-secondary">
-                                                    <input type="text" readonly class="form-control"
+                                                <div class="col-sm-6 text-secondary">
+                                                    <label for="email">Email</label>
+                                                    <input type="email" name="email" class="form-control"
                                                         value="{{ auth()->user()->email }}">
                                                 </div>
                                             </div>
+                                            <div class="row mb-3">
+                                                <div class="col-sm-6 text-secondary">
+                                                    <label for="mobile">Mobile</label>
+                                                    <input type="number" name="mobile" class="form-control"
+                                                        value="{{ auth()->user()->mobile }}">
+                                                </div>
+                                                <div class="col-sm-6 text-secondary">
+                                                    <label for="designation">Designation</label>
+                                                    <input type="text" name="designation" class="form-control"
+                                                        value="{{ auth()->user()->designation }}">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-sm-6 text-secondary">
+                                                    <label for="address">Address</label>
+                                                    <input type="text" name="address" class="form-control"
+                                                        value="{{ auth()->user()->address }}">
+                                                </div>
+                                                <div class="col-sm-6 text-secondary">
+                                                    <label for="team">Team</label>
+                                                    <input type="text" name="team" class="form-control"
+                                                        value="{{ auth()->user()->team }}">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-sm-6 text-secondary">
+                                                    <label for="age">Age</label>
+                                                    <input type="number" name="age" class="form-control"
+                                                        value="{{ auth()->user()->age }}">
+                                                </div>
+                                                <div class="col-sm-6 text-secondary">
+                                                    <label for="freelance">Freelance</label>
+                                                    <input type="text" name="freelance" class="form-control"
+                                                        value="{{ auth()->user()->freelance }}">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-sm-6 text-secondary">
+                                                    <label for="langages">Langages</label>
+                                                    <input type="text" name="langages" class="form-control"
+                                                        value="{{ auth()->user()->langages }}">
+                                                </div>
+                                                <div class="col-sm-6 text-secondary">
+                                                    <label for="nationality">Nationality</label>
+                                                    <input type="text" name="nationality" class="form-control"
+                                                        value="{{ auth()->user()->nationality }}">
+                                                </div>
 
+                                            </div>
                                             <div class="row mb-3">
-                                                <div class="col-sm-4">
-                                                    <h6 class="mb-0">Mobile</h6>
+                                                <div class="col-sm-6 text-secondary">
+                                                    <label for="facebook">Facebook</label>
+                                                    <input type="text" name="facebook" class="form-control"
+                                                        value="{{ auth()->user()->facebook }}">
                                                 </div>
-                                                <div class="col-sm-8 text-secondary">
-                                                    <input type="text" name="mobile" id="mobile" class="form-control"
-                                                        value="{{ auth()->user()->mobile }}" placeholder="Your Mobile">
+                                                <div class="col-sm-6 text-secondary">
+                                                    <label for="twitter">Twitter</label>
+                                                    <input type="text" name="twitter" class="form-control"
+                                                        value="{{ auth()->user()->twitter }}">
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
-                                                <div class="col-sm-4">
-                                                    <h6 class="mb-0">Address</h6>
+                                                <div class="col-sm-6 text-secondary">
+                                                    <label for="linkdin">Linkdin</label>
+                                                    <input type="text" name="linkdin" class="form-control"
+                                                        value="{{ auth()->user()->linkdin }}">
                                                 </div>
-                                                <div class="col-sm-8 text-secondary">
-                                                    <input type="text" name="address" id="address" class="form-control"
-                                                        value="{{ auth()->user()->address }}" placeholder="Your Address">
+                                                <div class="col-sm-6 text-secondary">
+                                                    <label for="github">Github</label>
+                                                    <input type="text" name="github" class="form-control"
+                                                        value="{{ auth()->user()->github }}">
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
-                                                <div class="col-sm-4">
-                                                    <h6 class="mb-0">Photo</h6>
+                                                <div class="col-sm-6 text-secondary">
+                                                    <label for="years_of_experience">Year of Experience</label>
+                                                    <input type="number" name="years_of_experience" class="form-control"
+                                                        value="{{ auth()->user()->years_of_experience }}">
                                                 </div>
-                                                <div class="col-sm-8 text-secondary">
-                                                    <input type="file" name="photo" id="photo" class="form-control"
-                                                        onchange="previewImage(event)">
-                                                    @if (auth()->user()->photo)
-                                                        <img class="mt-2"
-                                                            src="{{ asset('uploads/photo/' . auth()->user()->photo) }}"
+                                                <div class="col-sm-6 text-secondary">
+                                                    <label for="complete_project">Complete Project</label>
+                                                    <input type="number" name="complete_project" class="form-control"
+                                                        value="{{ auth()->user()->complete_project }}">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-sm-6 text-secondary">
+                                                    <label for="happy_customer">Happy Customer</label>
+                                                    <input type="number" name="happy_customer" class="form-control"
+                                                        value="{{ auth()->user()->happy_customer }}">
+                                                </div>
+                                                <div class="col-sm-6 text-secondary">
+                                                    <label for="number_of_award">Number of Award</label>
+                                                    <input type="number" name="number_of_award" class="form-control"
+                                                        value="{{ auth()->user()->number_of_award }}">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-sm-12 text-secondary">
+                                                    <label for="bio">Bio</label>
+                                                    <textarea name="bio" id="bio" class="form-control" cols="30" rows="2">{{ auth()->user()->bio }}</textarea>
+                                                </div>
+
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-sm-12 text-secondary">
+                                                    <label for="description">Description</label>
+                                                    <textarea name="description" class="form-control" id="description" cols="30" rows="2">{{ auth()->user()->description }}</textarea>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-sm-12 text-secondary mb-3">
+                                                    <label for="meta_title">Meta Title</label>
+                                                    <input type="text" name="meta_title" class="form-control"
+                                                        value="{{ auth()->user()->meta_title }}">
+                                                </div>
+                                                <div class="col-sm-12 text-secondary">
+                                                    <label for="meta_description">Meta Description</label>
+                                                    <textarea name="meta_description" class="form-control" id="meta_description" cols="30" rows="2">{{ auth()->user()->meta_description }}</textarea>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-sm-12 text-secondary">
+                                                    <label for="meta_keywords">Meta Keywords</label>
+                                                    <textarea name="meta_keywords" class="form-control" id="meta_keywords" cols="30" rows="2">{{ auth()->user()->meta_keywords }}</textarea>
+                                                </div>
+                                                <div class="col-sm-12 text-secondary mt-3">
+                                                    <label for="cv">CV</label>
+                                                    <input type="file" name="cv" class="form-control"
+                                                        value="{{ auth()->user()->cv }}">
+                                                    @if (auth()->user()->cv)
+                                                        <img src="{{ asset('uploads/cv/' . auth()->user()->cv) }}"
+                                                            alt="">
+                                                    @endif
+                                                </div>
+                                                <div class="col-sm-12 text-secondary mt-3">
+                                                    <label for="image">Photo</label>
+                                                    <input type="file" name="image" id="image"
+                                                        class="form-control" onchange="previewImage(event)">
+                                                    @if (auth()->user()->image)
+                                                         <img class="mt-2"
+                                                            src="{{ asset('uploads/photo/' . auth()->user()->image) }}" 
                                                             alt="photo" style="max-width: 100px; max-height: 100px;" />
+                                                        
                                                     @endif
                                                     <div id="preview-container" style="margin-top: 15px;">
                                                         <img id="logo-preview"
-                                                            src="{{ asset('uploads/photo/' . auth()->user()->photo) }}"
+                                                            src="{{ asset('uploads/photo/' . auth()->user()->image) }}"
                                                             alt="Image Preview"
                                                             style="display: none; max-width: 100px; max-height: 100px;" />
                                                     </div>
                                                 </div>
+                                                <div class="col-sm-12 text-secondary">
+                                                    <label for="fave_icon">Fave Icon</label>
+                                                    <input type="file" name="fave_icon" class="form-control">
+                                                    @if (auth()->user()->cv)
+                                                        <img src="{{ asset('uploads/photo/' . auth()->user()->fave_icon) }}"
+                                                            alt="">
+                                                    @endif
+                                                </div>
                                             </div>
+
+                                            
                                             <div class="row">
-                                                <div class="col-sm-4"></div>
-                                                <div class="col-sm-8 text-secondary">
-                                                    <input type="button" id="updateProfileBtn" class="btn btn-primary px-4"
-                                                        value="Update">
+                                                <div class="col-sm-12 text-secondary">
+                                                    <input type="button" id="updateProfileBtn"
+                                                        class="btn btn-primary px-4" value="Update">
                                                 </div>
                                             </div>
                                         </div>
@@ -186,23 +303,29 @@
         });
 
         $(document).ready(function() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
             $("#current_pwd").keyup(function() {
                 var current_pwd = $("#current_pwd").val();
 
                 $.ajax({
-                    type: 'post',
+                    type: 'POST',
                     url: '/admin/check-pwd',
                     data: {
                         current_pwd: current_pwd
                     },
                     success: function(resp) {
-                        // alert(resp);
                         if (resp == "false") {
                             $("#chkPwd").html(
-                                "<font color='red'>Current Password is Incorrect</font>");
+                                "<span style='color:red;'>Current Password is Incorrect</span>"
+                            );
                         } else if (resp == "true") {
                             $("#chkPwd").html(
-                                "<font color='green'>Current Password is Correct</font>");
+                                "<span style='color:green;'>Current Password is Correct</span>"
+                            );
                         }
                     },
                     error: function() {

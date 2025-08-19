@@ -28,15 +28,17 @@
                             <form id="FormData">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label for="title">Title</label>
+                                        <div class="form-group mb-3">
+                                            <label for="title">Title <small class="text-danger">*</small></label>
                                             <input type="text" placeholder="Enter Title" id="title" name="title"
-                                                class="form-control">
+                                                class="form-control" value="{{ old('title') }}">
+                                                <span class="invalid-feedback"></span>
                                         </div>
                                         <div class="form-group">
-                                            <label for="percentage">Percentage</label>
+                                            <label for="percentage">Percentage <small class="text-danger">*</small></label>
                                             <input type="number" placeholder="Enter Percentage" id="percentage"
-                                                name="percentage" class="form-control">
+                                                name="percentage" class="form-control" value="{{ old('percentage') }}">
+                                                <span class="invalid-feedback"></span>
                                         </div>
 
                                         <div class="form-group mt-3">

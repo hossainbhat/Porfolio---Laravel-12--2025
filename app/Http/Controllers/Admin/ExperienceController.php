@@ -66,18 +66,17 @@ class ExperienceController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'year' => 'required',
+        ]);
         try {
-            $request->validate([
-                'title' => 'required',
-                'description' => 'required',
-                'year' => 'required',
-            ]);
-
             $data = [
                 'title' => $request->title,
                 'description' => $request->description,
                 'year' => $request->year,
-                'status' => $request->status ? $request->status : 0,
+                'status' => $request->status ? $request->status : 1,
             ];
             Experience::create($data);
             return sendSuccess('Successfully created !');
@@ -102,13 +101,12 @@ class ExperienceController extends Controller
      */
     public function update(Request $request, Experience $experience)
     {
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'year' => 'required',
+        ]);
         try {
-           $request->validate([
-                'title' => 'required',
-                'description' => 'required',
-                'year' => 'required',
-            ]);
-
             $data = [
                 'title' => $request->title,
                 'description' => $request->description,

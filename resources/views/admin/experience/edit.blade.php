@@ -27,20 +27,23 @@
                         <div class="card-body">
                             <form id="FormData">
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-md-12 mt-3">
                                         <div class="form-group">
                                             <label for="title">Title</label>
                                             <input type="text" placeholder="Enter Title" value="{{$experience->title}}" id="title" name="title"
                                                 class="form-control">
+                                                <span class="invalid-feedback"></span>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group mt-3">
                                             <label for="year">Year</label>
                                             <input type="text" placeholder="Enter year" value="{{$experience->year}}" id="year" name="year"
                                                 class="form-control">
+                                                <span class="invalid-feedback"></span>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="description">description</label>
-                                            <textarea name="description" id="description" class="form-control" cols="30" rows="10">{{$experience->description}}</textarea>
+                                        <div class="form-group mt-3">
+                                            <label for="description">Description</label>
+                                            <textarea name="description" id="description" class="form-control" cols="30" rows="3">{{$experience->description}}</textarea>
+                                            <span class="invalid-feedback"></span>
                                         </div>
 
                                         <div class="form-group mt-3">

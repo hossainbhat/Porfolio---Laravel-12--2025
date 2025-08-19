@@ -22,7 +22,7 @@ class BlogController extends Controller
             $offset = 0;
             $search = [];
             $where = [];
-            $with = [];
+            $with = ['user'];
             $join = [];
             $orderBy = [];
 
@@ -81,7 +81,7 @@ class BlogController extends Controller
                 'description' => $request->description,
                 'meta_title' => $request->meta_title,
                 'meta_description' => $request->meta_description,
-                'status' => $request->status ? $request->status : 0,
+                'status' => $request->status ? $request->status : 1,
             ];
             if ($request->hasFile('image')) {
                 $image_tmp = $request->file('image');
@@ -126,7 +126,7 @@ class BlogController extends Controller
                 'description' => $request->description,
                 'meta_title' => $request->meta_title,
                 'meta_description' => $request->meta_description,
-                'status' => $request->status ? $request->status : 0,
+                'status' => $request->status ? $request->status : 1,
             ];
             if ($request->hasFile('image')) {
                 $logo = self::IMAGE_PATH . $blog->image;

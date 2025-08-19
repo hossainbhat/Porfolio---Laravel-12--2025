@@ -27,13 +27,12 @@ class IndexController extends Controller
     }
     public function blog()
     {
-        $data['blogs'] = Blog::with('user')->where('status', 1)->latest()->paginate(6);
-        return view('them.blog',$data);
+        return view('them.blog');
     }
 
-    public function blogSingle(Blog $blog)
+    public function blogSingle($slug)
     {
-        $data['blog'] = $blog->load('user');
+        $data['blog'] = Blog::where(['slug'=>$slug])->with('user')->first();
         return view('them.blog_single', $data);
     }
 

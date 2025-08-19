@@ -66,16 +66,15 @@ class SkillController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required',
+            'percentage' => 'required',
+        ]);
         try {
-            $request->validate([
-                'title' => 'required',
-                'percentage' => 'required',
-            ]);
-
             $data = [
                 'title' => $request->title,
                 'percentage' => $request->percentage,
-                'status' => $request->status ? $request->status : 0,
+                'status' => $request->status ? $request->status : 1,
             ];
             Skill::create($data);
             return sendSuccess('Successfully created !');
@@ -100,11 +99,12 @@ class SkillController extends Controller
      */
     public function update(Request $request, Skill $skill)
     {
+        $request->validate([
+            'title' => 'required',
+            'percentage' => 'required',
+        ]);
+
         try {
-            $request->validate([
-                'title' => 'required',
-                'percentage' => 'required',
-            ]);
 
             $data = [
                 'title' => $request->title,

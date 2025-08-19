@@ -10,9 +10,10 @@
                             <div class="d-flex align-items-center">
                                 <div>
                                     <p class="mb-0 text-secondary">Total Project</p>
-                                    <h4 class="my-1 text-info">100</h4>
+                                    <h4 class="my-1 text-info">{{ $total_project ? $total_project : 0 }}</h4>
                                 </div>
-                                <div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto"><i class="lni lni-layers"></i>
+                                <div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto"><i
+                                        class="lni lni-layers"></i>
                                 </div>
                             </div>
                         </div>
@@ -24,9 +25,10 @@
                             <div class="d-flex align-items-center">
                                 <div>
                                     <p class="mb-0 text-secondary">Total Blog</p>
-                                    <h4 class="my-1 text-danger">20</h4>
+                                    <h4 class="my-1 text-danger">{{ $total_blog ? $total_blog : 0 }}</h4>
                                 </div>
-                                <div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto"><i class="lni lni-blogger"></i>
+                                <div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto"><i
+                                        class="lni lni-blogger"></i>
                                 </div>
                             </div>
                         </div>
@@ -38,9 +40,10 @@
                             <div class="d-flex align-items-center">
                                 <div>
                                     <p class="mb-0 text-secondary">Total Skill</p>
-                                    <h4 class="my-1 text-success">10</h4>
+                                    <h4 class="my-1 text-success">{{ $total_skill ? $total_skill : 0 }}</h4>
                                 </div>
-                                <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class="lni lni-rocket"></i>
+                                <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i
+                                        class="lni lni-rocket"></i>
                                 </div>
                             </div>
                         </div>
@@ -52,9 +55,10 @@
                             <div class="d-flex align-items-center">
                                 <div>
                                     <p class="mb-0 text-secondary">Total Contact</p>
-                                    <h4 class="my-1 text-warning">100</h4>
+                                    <h4 class="my-1 text-warning">{{ $total_contact ? $total_contact : 0 }}</h4>
                                 </div>
-                                <div class="widgets-icons-2 rounded-circle bg-gradient-blooker text-white ms-auto"><i class="lni lni-phone"></i>
+                                <div class="widgets-icons-2 rounded-circle bg-gradient-blooker text-white ms-auto"><i
+                                        class="lni lni-phone"></i>
                                 </div>
                             </div>
                         </div>
@@ -77,13 +81,22 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Md Hossain Bhat</td>
-                                    <td>hossainbhat25@gmail.com</td>
-                                    <td>Every thing ok</td>
-                                    <td>03 Feb 2020</td>
-                                    <td><span class="badge bg-gradient-quepal text-white shadow-sm w-100">seen</span></td>
-                                </tr>
+                                @foreach ($contacts as $contact)
+                                    <tr>
+                                        <td>{{ $contact->name }}</td>
+                                        <td>{{ $contact->email }}</td>
+                                        <td>{{ $contact->subject }}</td>
+                                        <td>{{ \Carbon\Carbon::parse($contact->created_at)->format('d M Y') }}</td>
+                                        <td>
+                                            @if ($contact->seen == 1)
+                                                <span class="badge bg-success text-white shadow-sm w-100">Seen</span>
+                                            @else
+                                                <span class="badge bg-danger text-white shadow-sm w-100">Unseen</span>
+                                            @endif
+                                        </td>
+
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
